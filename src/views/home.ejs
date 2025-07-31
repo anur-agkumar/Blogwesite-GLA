@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Home</title>
+    <link rel="stylesheet" href="/home.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="log-container">
+       <h1 class="texts">Blog Nodes</h1>
+      </div>
+
+      <a href="/products/add">Create New Blog</a>
+
+      <% if (decode) { %>
+        <a href="/users/logout">Logout</a>
+      <% } else { %>
+        <a href="/users/login">Login</a>
+      <% } %>
+    </nav>
+
+    <!-- Filter categories -->
+    <div class="filter">
+      <form action="/" method="get">
+        <select name="category">
+          <option value="">All Categories</option>
+          <option value="AI">AI</option>
+          <option value="Self growth">Self growth</option>
+          <option value="science">science</option>
+        </select>
+        <button type="submit">Apply Filter</button>
+      </form>
+    </div>
+
+    <div class="container">
+      <% products.forEach(elem => { %>
+        <div class="card">
+          <div class="top">
+            <img src="<%= elem.image %>" alt="blog image" />
+          </div>
+          <div class="bottom">
+            <a href="/products/detail/<%= elem._id %>"><h2><%= elem.title %></h2></a>
+            <p><%= elem.content.substring(0, 120) %>...</p>
+            <p><strong>Categories:</strong> <%= elem.categories.join(", ") %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </body>
+</html>

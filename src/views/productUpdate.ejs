@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Blog Post</title>
+  <link rel="stylesheet" href="/productForm.css" />
+</head>
+<body>
+
+  <h2>Update Blog Post</h2>
+  <form action="/products/update/<%= product._id %>" enctype="multipart/form-data" method="post">
+
+    <label for="title">Title</label><br>
+    <input type="text" id="title" name="title" placeholder="Enter blog title" value="<%= product.title %>" required><br><br>
+
+    <label for="categories">Categories</label><br>
+    <input type="text" id="categories" name="category" placeholder="Enter categories (comma-separated)" value="<%= product.category %>"><br><br>
+
+    <label for="content">Content</label><br>
+    <textarea id="content" name="description" placeholder="Write your blog content here..." required><%= product.description %></textarea><br><br>
+
+    <label for="image">Featured Image</label><br>
+    <input type="file" id="image" name="image"><br><br>
+
+    <div class="btn">
+      <button type="submit">Update</button>
+    </div>
+
+  </form>
+
+</body>
+</html>
