@@ -94,7 +94,7 @@ router.post("/add", upload.single("image"), async (req, res) => {
     image: result.url,
   });
 
-  res.redirect("/");
+  res.redirect("/home");
 });
 
 module.exports = router;
